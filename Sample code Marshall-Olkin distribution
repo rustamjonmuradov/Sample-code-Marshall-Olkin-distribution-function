@@ -1,0 +1,21 @@
+# Set parameters for the exponential distributions
+lambda1 <- 0.1
+lambda2 <- 0.2
+
+# Generate random samples from two independent exponential distributions
+sample1 <- rexp(1000, rate = lambda1)
+sample2 <- rexp(1000, rate = lambda2)
+
+# Calculate the joint distribution as the minimum of the two samples
+min_sample <- pmin(sample1, sample2)
+
+# Sort the minimum sample values
+sorted_min_sample <- sort(min_sample)
+
+# Plot the cumulative distribution function (CDF)
+plot(sorted_min_sample, (1:length(sorted_min_sample))/length(sorted_min_sample),
+     type = "l", col = "blue", xlab = "Minimum Value", ylab = "CDF",
+     main = "Marshall-Olkin Distribution Function")
+
+# Add gridlines and customize the plot as needed
+grid()
